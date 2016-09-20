@@ -11,7 +11,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920142152) do
+ActiveRecord::Schema.define(version: 20160920150433) do
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "activity_sessions", force: :cascade do |t|
+    t.integer  "activity_id"
+    t.integer  "session_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "activity_sessions", ["activity_id"], name: "index_activity_sessions_on_activity_id"
+  add_index "activity_sessions", ["session_id"], name: "index_activity_sessions_on_session_id"
+
+  create_table "functions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "session_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "session_users", ["session_id"], name: "index_session_users_on_session_id"
+  add_index "session_users", ["user_id"], name: "index_session_users_on_user_id"
+
+  create_table "sessions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start_session"
+    t.datetime "end_session"
+    t.integer  "student_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "status_session"
+  end
+
+  add_index "sessions", ["student_id"], name: "index_sessions_on_student_id"
+
+  create_table "studants", force: :cascade do |t|
+    t.string   "name"
+    t.date     "old"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string   "kkk"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -29,9 +87,11 @@ ActiveRecord::Schema.define(version: 20160920142152) do
     t.integer  "role"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "function_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["function_id"], name: "index_users_on_function_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
