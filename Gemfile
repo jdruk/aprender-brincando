@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'devise'
 gem 'pundit'
+gem 'puma'
 
 # Default
 gem 'rails', '4.2.5'

@@ -1,33 +1,67 @@
-<%= form_for(@contact) do |f| %>
-  <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-      <ul>
-      <% @contact.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Contato com projeto</h2>
+        <hr class="star-primary">
+      </div>
     </div>
-  <% end %>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+        <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+        <!-- <form name="sentMessage" id="contactForm" novalidate> -->
+        <%= form_for(@contact,  html: { novalidate: true,remote: true  }) do |f| %>
+        <% if @contact.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+          <ul>
+            <% @contact.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+        <div class="row control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label>Nome</label>
+            <%= f.text_field :name, class: "form-control", placeholder:"Nome", required: :true, "data-validation-required-message" => "Por favor entre com seu nome" %>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div class="row control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label>Endereço de Email</label>
+            <%= f.text_field :email, class:"form-control", placeholder: "Endereço de Email", required: :true , "data-validation-required-message" => "Por favor entre com seu email" %>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="row control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label>Número de Telefone</label>
+            <%= f.text_field :phone, class:"form-control", placeholder:"Número de Telefone", required: :true, "data-validation-required-message" => "Por favor entre com seu telefone" %>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="row control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label>Mensagem</label>
+            <%= f.text_area :description, class: 'form-control', placeholder: "Mensagem", rows: '5', required: :true, "data-validation-required-message" => "Por favor entre com seu mensagem"  %>
+          </textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <br>
+      <div id="success"></div>
+      <div class="row">
+        <div class="form-group col-xs-12">
+          <%= f.submit 'Enviar', class: "btn btn-success btn-lg", id: 'btnSubmit' %>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+</section>
