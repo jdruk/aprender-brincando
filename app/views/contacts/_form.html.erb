@@ -49,19 +49,18 @@
           <div class="form-group col-xs-12 floating-label-form-group controls">
             <label>Mensagem</label>
             <%= f.text_area :description, class: 'form-control', placeholder: "Mensagem", rows: '5', required: :true, "data-validation-required-message" => "Por favor entre com seu mensagem"  %>
-          </textarea>
-          <p class="help-block text-danger"></p>
+            <p class="help-block text-danger"></p>
+          </div>
         </div>
-      </div>
-      <br>
-      <div id="success"></div>
-      <div class="row">
-        <div class="form-group col-xs-12">
-          <%= f.submit 'Enviar', class: "btn btn-success btn-lg", id: 'btnSubmit' %>
+        <br>
+        <div id="success"></div>
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <%= f.submit 'Enviar', class: "btn btn-success btn-lg", id: 'btnSubmit' %>
+          </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
-</div>
 </section>
