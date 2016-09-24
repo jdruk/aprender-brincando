@@ -1,0 +1,1 @@
+json.partial! "session_students/session_student", session_student: @session_student

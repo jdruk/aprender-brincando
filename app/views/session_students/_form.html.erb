@@ -1,0 +1,66 @@
+<section id="contact">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2>Sessões projeto</h2>
+      <hr>
+    </div>
+  </div>
+
+  <!-- Informação da sessão -->
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <%= form_for(@session_student) do |f| %>
+      <% if @session_student.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@session_student.errors.count, "error") %> prohibited this session from being saved:</h2>
+
+        <ul>
+          <% @session_student.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+      <div class="row control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+            <%= f.label :name %><br>
+            <%= f.text_field :name, class: "form-control"%>
+          </div>
+      </div>
+
+      <div class="row control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+            <%= f.label :start_session %><br>
+            <%= f.datetime_select :start_session %>
+          </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <%= f.label :end_session %><br>
+          <%= f.datetime_select :end_session %>
+        </div>
+      </div>
+
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <%= f.label :student_id %><br>
+          <%= f.collection_select :student_id, Student.all, :id, :name, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <%= f.label :activity_id %><br>
+          <%= f.select :activity_ids , Activity.all.all.collect {|x| [x.name, x.id]}, {prompt: 'Selecione atividades'}, multiple: true, class: "" %>
+        </div>
+      </div>
+      
+      <div class="actions">
+        <%= f.submit 'Submeter', class: 'btn btn-success btn-lg'%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <!-- Informação da sessão -->
+</section>

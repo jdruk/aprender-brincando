@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start_session: 2016-09-24 13:50:48
+  end_session: 2016-09-24 13:50:48
+  student_id: 
+  status_session: 1
+
+two:
+  name: MyString
+  start_session: 2016-09-24 13:50:48
+  end_session: 2016-09-24 13:50:48
+  student_id: 
+  status_session: 1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923231139) do
+ActiveRecord::Schema.define(version: 20160924171536) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
@@ -22,12 +22,14 @@ ActiveRecord::Schema.define(version: 20160923231139) do
   create_table "activity_sessions", force: :cascade do |t|
     t.integer  "activity_id"
     t.integer  "session_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "session_student_id"
   end
 
   add_index "activity_sessions", ["activity_id"], name: "index_activity_sessions_on_activity_id"
   add_index "activity_sessions", ["session_id"], name: "index_activity_sessions_on_session_id"
+  add_index "activity_sessions", ["session_student_id"], name: "index_activity_sessions_on_session_student_id"
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +46,18 @@ ActiveRecord::Schema.define(version: 20160923231139) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "session_students", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start_session"
+    t.datetime "end_session"
+    t.integer  "student_id"
+    t.integer  "status_session", default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "session_students", ["student_id"], name: "index_session_students_on_student_id"
 
   create_table "session_users", force: :cascade do |t|
     t.integer  "user_id"
@@ -68,6 +82,14 @@ ActiveRecord::Schema.define(version: 20160923231139) do
   add_index "sessions", ["student_id"], name: "index_sessions_on_student_id"
 
   create_table "studants", force: :cascade do |t|
+    t.string   "name"
+    t.date     "old"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "students", force: :cascade do |t|
     t.string   "name"
     t.date     "old"
     t.text     "description"

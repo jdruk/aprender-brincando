@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @session_student.name %>
+</p>
+
+<p>
+  <strong>Start session:</strong>
+  <%= @session_student.start_session %>
+</p>
+
+<p>
+  <strong>End session:</strong>
+  <%= @session_student.end_session %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @session_student.student %>
+</p>
+
+<p>
+  <strong>Status session:</strong>
+  <%= @session_student.status_session %>
+</p>
+
+<%= link_to 'Edit', edit_session_student_path(@session_student), class: 'btn btn-success btn-lg' %> |
+<%= link_to 'Back', session_students_path, class: 'btn btn-success btn-lg' %>

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  resources :students
+  resources :session_students
   resources :contacts
   resources :functions
-  resources :sessions
   resources :activities
-  resources :studants
   devise_for :users
   
   # Controler home

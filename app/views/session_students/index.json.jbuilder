@@ -1,0 +1,1 @@
+json.array! @session_students, partial: 'session_students/session_student', as: :session_student

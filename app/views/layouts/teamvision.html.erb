@@ -8,8 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    
     <%= csrf_meta_tags %>
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title><%= content_for?(:title) ? yield(:title) : "Aprender Brincando" %></title>
 
     <%# stylesheet_link_tag "bootstrap_and_overrides" %>
 
@@ -33,7 +34,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+    <link rel="stylesheet" type="text/css" href="https://github.com/alxlit/bootstrap-chosen/blob/master/bootstrap-chosen.css">
     <%= stylesheet_link_tag "timelife.css" %>  
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
@@ -52,7 +53,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">SB Admin</a>
+                    <%= link_to 'Dislexicando', root_path, class: 'navbar-brand' %>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -167,6 +168,11 @@
                                 <i class="glyphicon glyphicon-comment"></i> Contatos
                             <% end %>
                         </li>
+                        <li>
+                        	<%= link_to session_students_path do %>
+                                <i class="glyphicon glyphicon-comment"></i> Sessões
+                            <% end %>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -188,8 +194,7 @@
     <!-- Morris Charts JavaScript -->
     <%= javascript_include_tag 'plugins/morris/raphael.min.js' %>
     <%= javascript_include_tag 'plugins/morris/morris.min.js' %>
-    <%= javascript_include_tag 'plugins/morris/morris-data.js' %>
+    <%= javascript_include_tag 'plugins/morris/morris-data.js' %>     
     
 </body>
-
 </html>
