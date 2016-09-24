@@ -12,4 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ * retirando um css especifico
+ *= stub sb-admin.css
  */

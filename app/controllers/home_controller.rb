@@ -1,8 +1,15 @@
 class HomeController < ApplicationController
-  def index
-  	@contact = Contact.new
-  end
+	layout 'teamvision', except: :index
 
-  def about
-  end
+	def index
+		@contact = Contact.new
+	end
+
+	def administrator
+
+	end
+
+	def normal_user
+	end
 end
+

@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
+  layout 'teamvision', except: [:new,:create]
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:new,:create]
+  #before_action :authenticate_user!, except: [:new,:create]
 
   # GET /contacts
   # GET /contacts.json
@@ -67,6 +68,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:name, :email, :phone, :description)
+      params.require(:contact).permit(:name, :status, :email, :phone, :description)
     end
 end

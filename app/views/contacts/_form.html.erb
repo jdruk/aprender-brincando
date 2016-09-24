@@ -45,6 +45,14 @@
             <p class="help-block text-danger"></p>
           </div>
         </div>
+        <% if user_signed_in? && current_user.equipe? %>
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Status</label>
+              <%= f.select :status, Contact.statuses.keys, {}, class: 'form-control' %>
+            </div>
+          </div>
+        <% end %>
         <div class="row control-group">
           <div class="form-group col-xs-12 floating-label-form-group controls">
             <label>Mensagem</label>
