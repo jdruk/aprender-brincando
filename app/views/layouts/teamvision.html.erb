@@ -34,9 +34,13 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-    <link rel="stylesheet" type="text/css" href="https://github.com/alxlit/bootstrap-chosen/blob/master/bootstrap-chosen.css">
-    <%= stylesheet_link_tag "timelife.css" %>  
+    
+    <%= stylesheet_link_tag "timelife.css" %> 
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'jquery.js' %>
+    <%= javascript_include_tag 'bootstrap.js' %>
+    
+    
 </head>
 
     <body>
@@ -183,18 +187,8 @@
                     <%= yield %>
                 </div>
             </div>
-            <!-- /#page-wrapper -->
-
+         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
-
-    
-    <%= javascript_include_tag 'jquery.js' %>
-    <%= javascript_include_tag 'bootstrap.js' %>
-    <!-- Morris Charts JavaScript -->
-    <%= javascript_include_tag 'plugins/morris/raphael.min.js' %>
-    <%= javascript_include_tag 'plugins/morris/morris.min.js' %>
-    <%= javascript_include_tag 'plugins/morris/morris-data.js' %>     
-    
 </body>
 </html>
