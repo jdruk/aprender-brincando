@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-	layout 'teamvision', except: :index
+	layout 'teamvision', only: :administrator
+	layout 'parents', only: :normal_user
 
 	def index
 		@contact = Contact.new

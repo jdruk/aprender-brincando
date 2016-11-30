@@ -10,4 +10,4 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
  Rails.application.config.assets.precompile += %w( jquery.js jquery.min.js bootstrap.min.js bootstrap.js bootstrap_and_overrides.css sb-admin.css morris.css font-awesome.css 
  plugins/morris/raphael.min.js plugins/morris/morris.min.js plugins/morris/morris-data.js 
- bootstrap.css timelife.css )
+ bootstrap.css timelife.css templatebase.css )

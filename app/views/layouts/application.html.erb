@@ -7,7 +7,8 @@
   <title><%= content_for?(:title) ? yield(:title) : "AprenderBrincando" %></title>
   <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag "bootstrap.css" %>
+  <%= stylesheet_link_tag "templatebase.css" %>
 
   <!-- For third-generation iPad with high-resolution Retina display: -->
   <!-- Size should be 144 x 144 pixels -->
@@ -62,9 +63,11 @@
           <li class="page-scroll">
             <a href="#portfolio">Jogos</a>
           </li>
-          <li class="page-scroll">
-            <%= link_to 'Cadastro', root_path(cadastro: true) %>
-          </li>
+          <% unless user_signed_in? %>
+            <li class="page-scroll">
+              <%= link_to 'Cadastro', root_path(cadastro: true) %>
+            </li>
+           <% end %>
           <li class="page-scroll">
             <% if user_signed_in? %>
               <li>

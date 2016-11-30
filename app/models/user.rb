@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   enum role: [:equipe]
   
+  has_many :students
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end
