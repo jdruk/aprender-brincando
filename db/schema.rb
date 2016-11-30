@@ -82,14 +82,6 @@ ActiveRecord::Schema.define(version: 20161130011215) do
 
   add_index "sessions", ["student_id"], name: "index_sessions_on_student_id"
 
-  create_table "studants", force: :cascade do |t|
-    t.string   "name"
-    t.date     "old"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "students", force: :cascade do |t|
     t.string   "name"
     t.date     "old"
@@ -100,12 +92,6 @@ ActiveRecord::Schema.define(version: 20161130011215) do
   end
 
   add_index "students", ["user_id"], name: "index_students_on_user_id"
-
-  create_table "tests", force: :cascade do |t|
-    t.string   "kkk"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
